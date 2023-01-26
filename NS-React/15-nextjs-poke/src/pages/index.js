@@ -16,7 +16,7 @@ const Pokemon = ({ pokemon }) => {
 export default function Pokemones({ pokemones }) {
   return (
     <div>
-      <p>Pokemones</p>
+      <p data-testid="titulo">Pokemones</p>
       <ul>
         {pokemones.map((pokemon) => (
           <Pokemon pokemon={pokemon} key={pokemon.name} />
@@ -26,7 +26,7 @@ export default function Pokemones({ pokemones }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
   const data = await response.json();
 
